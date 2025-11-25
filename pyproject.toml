@@ -1,0 +1,35 @@
+[project]
+name = "bach-api_football"
+version = "1.0.0"
+description = "RapidAPI: api-sports/api-football"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=2.0.0",
+    "httpx>=0.25.0",
+]
+
+[project.scripts]
+bach_api_football = "server:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/bachstudio/bach-api_football"
+Repository = "https://github.com/bachstudio/bach-api_football"
+Documentation = "https://github.com/bachstudio/bach-api_football#readme"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.hatch.version]
+path = "server.py"
+pattern = '__version__ = "(?P<version>[^"]+)"'
