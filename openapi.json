@@ -1,0 +1,2163 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Api Football",
+    "version": "1.0.0",
+    "description": "RapidAPI: api-sports/api-football"
+  },
+  "servers": [
+    {
+      "url": "https://api-football.p.rapidapi.com"
+    }
+  ],
+  "paths": {
+    "/v3/fixtures/headtohead": {
+      "get": {
+        "summary": "V3 - Fixtures Head To Head between two teams",
+        "description": "$241",
+        "operationId": "v3___fixtures_head_to_head_between_two_teams",
+        "parameters": [
+          {
+            "name": "h2h",
+            "in": "query",
+            "required": true,
+            "description": "The ids of the teams id-id",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "description": "A valid date",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "league",
+            "in": "query",
+            "required": false,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": false,
+            "description": "The season of the league 4 characters Like 2020; 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "last",
+            "in": "query",
+            "required": false,
+            "description": "For the X last fixtures <= 2 characters",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "next",
+            "in": "query",
+            "required": false,
+            "description": "For the X next fixtures <= 2 characters",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "description": "A valid date",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "description": "A valid date",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "venue",
+            "in": "query",
+            "required": false,
+            "description": "The venue id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "One or more fixture status short Like NS or NS-FT-CANC",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "timezone",
+            "in": "query",
+            "required": false,
+            "description": "A valid timezone from the endpoint Timezone",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/players/topyellowcards": {
+      "get": {
+        "summary": "V3 - Top Yellow Cards",
+        "description": "Get the 20 players with the most yellow cards for a league or cup.  **How it is calculated:**         * 1 : The player that received the higher number of yellow cards         * 2 : The player that received the higher number of red cards         * 3 : The player that assists in the higher number of matches         * 4 : The player that played the fewer minutes  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.",
+        "operationId": "v3___top_yellow_cards",
+        "parameters": [
+          {
+            "name": "league",
+            "in": "query",
+            "required": true,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "39",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": true,
+            "description": "The season of the league 4 characters Like 2020, 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "2020",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/injuries": {
+      "get": {
+        "summary": "V3 - Injuries by team id and season",
+        "description": "$242",
+        "operationId": "v3___injuries_by_team_id_and_season",
+        "parameters": [
+          {
+            "name": "league",
+            "in": "query",
+            "required": false,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": false,
+            "description": "The season of the league, required with league, team and player parameters",
+            "schema": {
+              "type": "string",
+              "default": "2020",
+              "enum": null
+            }
+          },
+          {
+            "name": "fixture",
+            "in": "query",
+            "required": false,
+            "description": "The id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "33",
+              "enum": null
+            }
+          },
+          {
+            "name": "player",
+            "in": "query",
+            "required": false,
+            "description": "The id of the player",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "description": "A valid date",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "timezone",
+            "in": "query",
+            "required": false,
+            "description": "A valid timezone from the endpoint Timezone",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/teams/seasons": {
+      "get": {
+        "summary": "V3 - Teams seasons",
+        "description": "Get the list of seasons available for a team.  **This endpoint requires at least one parameter.** **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.  **Use Cases** Get all seasons available for a team from one team {id} `https://api-football-v1.p.rapidapi.com/v3/teams/seasons?team=33`",
+        "operationId": "v3___teams_seasons",
+        "parameters": [
+          {
+            "name": "team",
+            "in": "query",
+            "required": true,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "33",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/odds/live": {
+      "get": {
+        "summary": "V3 - Odds (In-play)",
+        "description": "$243",
+        "operationId": "v3___odds_(in_play)",
+        "parameters": [
+          {
+            "name": "fixture",
+            "in": "query",
+            "required": false,
+            "description": "The id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "league",
+            "in": "query",
+            "required": false,
+            "description": "The id of the league In this endpoint the \\\\\\\\\\\\\\\"season\\\\\\\\\\\\\\\" parameter is not needed",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "bet",
+            "in": "query",
+            "required": false,
+            "description": "The id of the bet",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/fixtures": {
+      "get": {
+        "summary": "V3 - Fixtures from severals fixtures ids",
+        "description": "$244",
+        "operationId": "v3___fixtures_from_severals_fixtures_ids",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "The id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "live",
+            "in": "query",
+            "required": false,
+            "description": "Enum: all or id-id for filter by league id",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "description": "A valid date",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "league",
+            "in": "query",
+            "required": false,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": false,
+            "description": "The season of the league 4 characters Like 2020; 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "last",
+            "in": "query",
+            "required": false,
+            "description": "For the X last fixtures <= 2 characters",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "next",
+            "in": "query",
+            "required": false,
+            "description": "For the X next fixtures <= 2 characters",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "description": "A valid date",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "description": "A valid date",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "round",
+            "in": "query",
+            "required": false,
+            "description": "The round of the fixture",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "timezone",
+            "in": "query",
+            "required": false,
+            "description": "A valid timezone from the endpoint Timezone",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "One or more fixture status short Like NS or NS-FT-CANC",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "venue",
+            "in": "query",
+            "required": false,
+            "description": "The venue id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "description": "One or more fixture ids id-id-id Maximum of 20 fixtures ids",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/coachs": {
+      "get": {
+        "summary": "V3 - Coachs by team id",
+        "description": "Get all the information about the coachs and their careers.  **Update Frequency** : This endpoint is updated every day. **Recommended Calls** : 1 call per day.  **Use Cases** Get coachs from one coach {id} `https://api-football-v1.p.rapidapi.com/v3/coachs?id=1`  Get coachs from one {team} `https://api-football-v1.p.rapidapi.com/v3/coachs?team=33`  Allows you to search for a coach in relation to a coach {name} `https://api-football-v1.p.rapidapi.com/v3/coachs?search=Klopp`",
+        "operationId": "v3___coachs_by_team_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "The id of the coach",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "33",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/statistics/fixture/{fixture_id}/": {
+      "get": {
+        "summary": "/statistics/fixture/{fixture_id}",
+        "description": "Get all statistics game from one fixture",
+        "operationId": "/statistics/fixture/{fixture_id}",
+        "parameters": [
+          {
+            "name": "fixture_id",
+            "in": "query",
+            "required": true,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/odds/live/bets": {
+      "get": {
+        "summary": "V3 - Odds Bets  (In-play)",
+        "description": "Get all available bets for in-play odds.  All bets `id` can be used in endpoint `odds/live` as filters, **but are not compatible with endpoint `odds` for pre-match odds**.  **Update Frequency** : This endpoint is updated every 60 seconds.",
+        "operationId": "v3___odds_bets__(in_play)",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/teams/countries": {
+      "get": {
+        "summary": "V3 - Teams countries",
+        "description": "Get the list of countries available for the `teams` endpoint.  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.  **Use Cases** Get all countries available for the teams endpoints `https://api-football-v1.p.rapidapi.com/v3/teams/countries`",
+        "operationId": "v3___teams_countries",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/teams": {
+      "get": {
+        "summary": "V3 - Teams informations",
+        "description": "Get the list of available teams.  The team `id` are **unique** in the API and teams keep it among all the leagues/cups in which they participate.  \\u003e All the parameters of this endpoint can be used together.  **This endpoint requires at least one parameter.**  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.  **Use Cases** Get one team from one team {id} `https://api-football-v1.p.rapidapi.com/v3/teams?id=33`  Get one team from ...",
+        "operationId": "v3___teams_informations",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "33",
+              "enum": null
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "The name of the team",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "league",
+            "in": "query",
+            "required": false,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": false,
+            "description": "The season of the league 4 characters Like 2019, 2020, 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "The country name of the team",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "description": "The code of the team",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "venue",
+            "in": "query",
+            "required": false,
+            "description": "The id of the venue",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/leagues": {
+      "get": {
+        "summary": "V3 - Search League",
+        "description": "$24d",
+        "operationId": "v3___search_league",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "The name of the league",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "The country name of the league",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "description": "The Alpha2 code of the country 2 characters Like FR, GB, IT…",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": false,
+            "description": "The season of the league 4 characters Like 2018, 2019 etc...",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "The type of the league Enum: league or cup",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "current",
+            "in": "query",
+            "required": false,
+            "description": "The state of the league Enum: true or false",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "last",
+            "in": "query",
+            "required": false,
+            "description": "The X last leagues/cups added in the API <= 2 characters",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/players": {
+      "get": {
+        "summary": "V3 - Search Player",
+        "description": "$24e",
+        "operationId": "v3___search_player",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "The id of the player",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "league",
+            "in": "query",
+            "required": false,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "61",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": false,
+            "description": "The season of the league 4 characters Requires the fields Id, League or Team",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Use for the pagination Default: 1",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/odds/bookmakers": {
+      "get": {
+        "summary": "V3 - Search Bookmaker",
+        "description": "Get all available bookmakers.  All bookmakers `id` can be used in endpoint odds as filters.  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.  **Use Cases** Get all available bookmakers `https://api-football-v1.p.rapidapi.com/v3/odds/bookmakers`  Get bookmaker from one {id} `https://api-football-v1.p.rapidapi.com/v3/odds/bookmakers?id=1`  Allows you to search for a bookmaker in relation to a bookmakers {name} `https://api-football-v...",
+        "operationId": "v3___search_bookmaker",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "The id of the bookmaker",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/countries": {
+      "get": {
+        "summary": "V3 - Search Country",
+        "description": "Get the list of available countries.  The `name` and `code` fields can be used in other endpoints as filters. \\u003e Examples available in Request samples \\",
+        "operationId": "v3___search_country",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "The name of the country",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "description": "The Alpha2 code of the country 2 characters Like FR, GB, IT…",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/venues": {
+      "get": {
+        "summary": "V3 - Search Venue",
+        "description": "Get the list of available venues.  The venue `id` are **unique** in the API.  \\u003e All the parameters of this endpoint can be used together.  **This endpoint requires at least one parameter.**  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.  **Use Cases** Get one venue from venue {id} `https://api-football-v1.p.rapidapi.com/v3/venues?id=556`  Get one venue from venue {name} `https://api-football-v1.p.rapidapi.com/v3/venues?name=...",
+        "operationId": "v3___search_venue",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "The id of the venue",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "The name of the venue",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "required": false,
+            "description": "The city of the venue",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "The country name of the venue",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/odds/bets": {
+      "get": {
+        "summary": "V3 - Search Bet",
+        "description": "Get all available bets.  All bets `id` can be used in endpoint odds as filters.  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.  **Use Cases** Get all available bets `https://api-football-v1.p.rapidapi.com/v3/odds/bets`  Get bet from one {id} `https://api-football-v1.p.rapidapi.com/v3/odds/bets?id=1`  Allows you to search for a bet in relation to a bets {name} `https://api-football-v1.p.rapidapi.com/v3/odds/bets?search=winner`",
+        "operationId": "v3___search_bet",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "The id of the bet",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/leagues/seasons": {
+      "get": {
+        "summary": "V3 - Seasons",
+        "description": "Get the list of available seasons.  All seasons are only **4-digit keys**, so for a league whose season is `2018-2019` like the English Premier League (EPL), the `2018-2019` season in the API will be `2018`.  All `seasons` can be used in other endpoints as filters.  \\u003e This endpoint does not require any parameters.  **Update Frequency** : This endpoint is updated each time a new league is added. **Recommended Calls** : 1 call per day.",
+        "operationId": "v3___seasons",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/odds/mapping": {
+      "get": {
+        "summary": "V3 - Odds Mapping",
+        "description": "Get the list of available odds.  All fixtures, leagues `id` and `date` can be used in endpoint odds as filters.  This endpoint uses a **pagination system**, you can navigate between the different pages thanks to the `page` parameter.  \\u003e **Pagination** : 100 results per page.  **Update Frequency** : This endpoint is updated every day. **Recommended Calls** : 1 call per day.",
+        "operationId": "v3___odds_mapping",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Use for the pagination Default: 1",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/fixtures/statistics": {
+      "get": {
+        "summary": "V3 - Fixtures Statistics",
+        "description": "$24f",
+        "operationId": "v3___fixtures_statistics",
+        "parameters": [
+          {
+            "name": "fixture",
+            "in": "query",
+            "required": true,
+            "description": "The id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "215662",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "The type of statistics Like Fouls, Offsides...",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/fixtures/lineups": {
+      "get": {
+        "summary": "V3 - Fixtures Lineups",
+        "description": "$250",
+        "operationId": "v3___fixtures_lineups",
+        "parameters": [
+          {
+            "name": "fixture",
+            "in": "query",
+            "required": true,
+            "description": "The id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "215662",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "player",
+            "in": "query",
+            "required": false,
+            "description": "The id of the player",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "The Lineup type Like Formation, Substitutes...",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/fixtures/players": {
+      "get": {
+        "summary": "V3 - Players statistics by fixture id",
+        "description": "Get the players statistics from one fixture.  **Update Frequency** : This endpoint is updated every minute. **Recommended Calls** : 1 call every minute for the fixtures in progress otherwise 1 call per day.  **Use Cases** Get all available players statistics from one {fixture} `https://api-football-v1.p.rapidapi.com/v3/fixtures/players?fixture=169080`  Get all available players statistics from one {fixture} \\u0026 {team} `https://api-football-v1.p.rapidapi.com/v3/fixtures/players?fixture=1690...",
+        "operationId": "v3___players_statistics_by_fixture_id",
+        "parameters": [
+          {
+            "name": "fixture",
+            "in": "query",
+            "required": true,
+            "description": "The id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "169080",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/players/squads": {
+      "get": {
+        "summary": "V3 - Players Squads",
+        "description": "Return the current squad of a team when the `team` parameter is used. When the `player` parameter is used the endpoint returns the set of teams associated with the player.  \\u003e The response format is the same regardless of the parameter sent.  **This endpoint requires at least one parameter.**  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per week.  **Use Cases** Get all players from one {team} `https://api-football-v1.p.rapidapi.com/...",
+        "operationId": "v3___players_squads",
+        "parameters": [
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "33",
+              "enum": null
+            }
+          },
+          {
+            "name": "player",
+            "in": "query",
+            "required": false,
+            "description": "The id of the player",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/players/topassists": {
+      "get": {
+        "summary": "V3 - Top Assists",
+        "description": "Get the 20 best players assists for a league or cup.  **How it is calculated:**         * 1 : The player that has delivered the higher number of goal assists         * 2 : The player that has scored the higher number of goals         * 3 : The player that has scored the fewer number of penalties         * 4 : The player that assists in the higher number of matches         * 5 : The player that played the fewer minutes         * 6 : The player that received the fewer number of red cards       ...",
+        "operationId": "v3___top_assists",
+        "parameters": [
+          {
+            "name": "league",
+            "in": "query",
+            "required": true,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "39",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": true,
+            "description": "The season of the league 4 characters Like 2020, 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "2020",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/players/topredcards": {
+      "get": {
+        "summary": "V3 - Top Red Cards",
+        "description": "Get the 20 players with the most red cards for a league or cup.  **How it is calculated:**         * 1 : The player that received the higher number of red cards         * 2 : The player that received the higher number of yellow cards         * 3 : The player that assists in the higher number of matches         * 4 : The player that played the fewer minutes  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.",
+        "operationId": "v3___top_red_cards",
+        "parameters": [
+          {
+            "name": "league",
+            "in": "query",
+            "required": true,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "39",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": true,
+            "description": "The season of the league 4 characters Like 2020, 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "2020",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/players/seasons": {
+      "get": {
+        "summary": "V3 - Players Seasons by player id",
+        "description": "Get all available seasons for players statistics filtered by a player {id}.  **Update Frequency** : This endpoint is updated every day. **Recommended Calls** : 1 call per day.  **Use Cases** Get all seasons available for a player {id} `https://api-football-v1.p.rapidapi.com/v3/players/seasons?player=276`",
+        "operationId": "v3___players_seasons_by_player_id",
+        "parameters": [
+          {
+            "name": "player",
+            "in": "query",
+            "required": false,
+            "description": "Example value: 276",
+            "schema": {
+              "type": "string",
+              "default": "276",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/timezone": {
+      "get": {
+        "summary": "V3 - Timezone",
+        "description": "Get the list of available timezone to be used in the fixtures endpoint.  \\u003e This endpoint does not require any parameters.   **Update Frequency** : This endpoint contains all the existing timezone, it is not updated. **Recommended Calls** : 1 call when you need.",
+        "operationId": "v3___timezone",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/players/topscorers": {
+      "get": {
+        "summary": "V3 - Top Scorers",
+        "description": "Get the 20 best players for a league or cup.  **How it is calculated:**         * 1 : The player that has scored the higher number of goals         * 2 : The player that has scored the fewer number of penalties         * 3 : The player that has delivered the higher number of goal assists         * 4 : The player that scored their goals in the higher number of matches         * 5 : The player that played the fewer minutes         * 6 : The player that plays for the team placed higher on the ta...",
+        "operationId": "v3___top_scorers",
+        "parameters": [
+          {
+            "name": "league",
+            "in": "query",
+            "required": true,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "39",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": true,
+            "description": "The season of the league 4 characters Like 2020, 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "2020",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/sidelined": {
+      "get": {
+        "summary": "V3 - Sidelined by coach id",
+        "description": "Get all available sidelined for a player or a coach.  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.  **Use Cases** Get all from one {player} `https://api-football-v1.p.rapidapi.com/v3/sidelined?player=276`  Get all from several {player} ids `https://api-football-v1.p.rapidapi.com/v3/sidelined?players=276-278`  Get all from one {coach} `https://api-football-v1.p.rapidapi.com/v3/sidelined?coach=2`  Get all from several {coachs} ids...",
+        "operationId": "v3___sidelined_by_coach_id",
+        "parameters": [
+          {
+            "name": "player",
+            "in": "query",
+            "required": false,
+            "description": "The id of the player",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "coach",
+            "in": "query",
+            "required": false,
+            "description": "The id of the coach",
+            "schema": {
+              "type": "string",
+              "default": "276",
+              "enum": null
+            }
+          },
+          {
+            "name": "players",
+            "in": "query",
+            "required": false,
+            "description": "Maximum of 20 players ids id-id-id",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "coachs",
+            "in": "query",
+            "required": false,
+            "description": "Maximum of 20 coachs ids id-id-id",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/trophies": {
+      "get": {
+        "summary": "V3 - Trophies by coach id",
+        "description": "Get all available trophies for a player or a coach.  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.  **Use Cases** Get all trophies from one {player} `https://api-football-v1.p.rapidapi.com/v3/trophies?player=276`  Get all trophies from several {player} ids `https://api-football-v1.p.rapidapi.com/v3/trophies?players=276-278`  Get all trophies from one {coach} `https://api-football-v1.p.rapidapi.com/v3/trophies?coach=2`  Get all tr...",
+        "operationId": "v3___trophies_by_coach_id",
+        "parameters": [
+          {
+            "name": "player",
+            "in": "query",
+            "required": false,
+            "description": "The id of the player",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "coach",
+            "in": "query",
+            "required": false,
+            "description": "The id of the coach",
+            "schema": {
+              "type": "string",
+              "default": "276",
+              "enum": null
+            }
+          },
+          {
+            "name": "players",
+            "in": "query",
+            "required": false,
+            "description": "Maximum of 20 players ids id-id-id",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "coachs",
+            "in": "query",
+            "required": false,
+            "description": "Maximum of 20 coachs ids id-id-id",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/players/teams": {
+      "get": {
+        "summary": "V3 - Players Teams",
+        "description": "Returns the list of teams and seasons in which the player played during his career.  **This endpoint requires at least one parameter.** **Update Frequency** : This endpoint is updated several times a week.  **Recommended Calls** : 1 call per week.",
+        "operationId": "v3___players_teams",
+        "parameters": [
+          {
+            "name": "player",
+            "in": "query",
+            "required": true,
+            "description": "The id of the player",
+            "schema": {
+              "type": "string",
+              "default": "276",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/players/profiles": {
+      "get": {
+        "summary": "V3 - Players Profiles",
+        "description": "$258",
+        "operationId": "v3___players_profiles",
+        "parameters": [
+          {
+            "name": "player",
+            "in": "query",
+            "required": false,
+            "description": "The id of the player",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Default: 1 Use for the pagination",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/fixtures/rounds": {
+      "get": {
+        "summary": "V3 - Fixtures Rounds With Dates",
+        "description": "Get the rounds for a league or a cup.  The `round` can be used in endpoint fixtures as filters     **Update Frequency** : This endpoint is updated every day. **Recommended Calls** : 1 call per day.  **Use Cases** Get all available rounds from one {league} \\u0026 {season} `https://api-football-v1.p.rapidapi.com/v3/rounds?league=39\\u0026season=2019`  // Get all available rounds from one {league} \\u0026 {season} With the dates of each round get(\\",
+        "operationId": "v3___fixtures_rounds_with_dates",
+        "parameters": [
+          {
+            "name": "league",
+            "in": "query",
+            "required": true,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "39",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": true,
+            "description": "The season of the league 4 characters Like 2020, 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "2020",
+              "enum": null
+            }
+          },
+          {
+            "name": "current",
+            "in": "query",
+            "required": false,
+            "description": "Retrun the current round only Enum: true or false",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "dates",
+            "in": "query",
+            "required": false,
+            "description": "Default: false Enum: \"true\" \"false\" Add the dates of each round in the response",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/odds": {
+      "get": {
+        "summary": "V3 - Odds by league id",
+        "description": "$25b",
+        "operationId": "v3___odds_by_league_id",
+        "parameters": [
+          {
+            "name": "fixture",
+            "in": "query",
+            "required": false,
+            "description": "The id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "league",
+            "in": "query",
+            "required": false,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "287",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": false,
+            "description": "The season of the league 4 characters Like 2020, 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "2020",
+              "enum": null
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "description": "A valid date",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "timezone",
+            "in": "query",
+            "required": false,
+            "description": "A valid timezone from the endpoint Timezone",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Use for the pagination Default: 1",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "bookmaker",
+            "in": "query",
+            "required": false,
+            "description": "The id of the bookmaker",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "bet",
+            "in": "query",
+            "required": false,
+            "description": "The id of the bet",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/predictions": {
+      "get": {
+        "summary": "V3 - Predictions",
+        "description": "$25e",
+        "operationId": "v3___predictions",
+        "parameters": [
+          {
+            "name": "fixture",
+            "in": "query",
+            "required": true,
+            "description": "The id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "198772",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/transfers": {
+      "get": {
+        "summary": "V3 - Transfers by team id",
+        "description": "Get all available transfers for players and teams  **Update Frequency** : This endpoint is updated several times a week. **Recommended Calls** : 1 call per day.  **Use Cases** Get all transfers from one {player} `https://api-football-v1.p.rapidapi.com/v3/transfers?player=35845`  Get all transfers from one {team} `https://api-football-v1.p.rapidapi.com/v3/transfers?team=463`",
+        "operationId": "v3___transfers_by_team_id",
+        "parameters": [
+          {
+            "name": "player",
+            "in": "query",
+            "required": false,
+            "description": "The id of the player",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "33",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/standings": {
+      "get": {
+        "summary": "V3 - Standings by league id",
+        "description": "Get the standings for a league or a team.  Return a table of one or more rankings according to the league / cup.  Some competitions have several rankings in a year, group phase, opening ranking, closing ranking etc…  \\u003e Most of the parameters of this endpoint can be used together.  **Update Frequency** : This endpoint is updated every hour. **Recommended Calls** : 1 call per hour for the leagues or teams who have at least one fixture in progress otherwise 1 call per day.  **Use Cases** Ge...",
+        "operationId": "v3___standings_by_league_id",
+        "parameters": [
+          {
+            "name": "league",
+            "in": "query",
+            "required": false,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "39",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": true,
+            "description": "The season of the league 4 characters Like 2020, 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "2020",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/fixtures/events": {
+      "get": {
+        "summary": "V3 - Fixtures Events",
+        "description": "$261",
+        "operationId": "v3___fixtures_events",
+        "parameters": [
+          {
+            "name": "fixture",
+            "in": "query",
+            "required": true,
+            "description": "The id of the fixture",
+            "schema": {
+              "type": "string",
+              "default": "215662",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "player",
+            "in": "query",
+            "required": false,
+            "description": "The id of the player",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "The event type Like Goal, Card ...",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/teams/statistics": {
+      "get": {
+        "summary": "V3 - Teams Statistics",
+        "description": "**Update Frequency** : This endpoint is updated twice a day. **Recommended Calls** : 1 call per day for the teams who have at least one fixture during the day otherwise 1 call per week.  \\u003e Here is an example of what can be achieved ![demo-teams-statistics](https://www.api-football.com/public/img/demo/demo-teams-statistics.png)  **Use Cases** Get all statistics for a {team} in a {league} \\u0026 {season} `https://api-football-v1.p.rapidapi.com/v3/teams/statistics?league=39\\u0026team=33\\u00...",
+        "operationId": "v3___teams_statistics",
+        "parameters": [
+          {
+            "name": "league",
+            "in": "query",
+            "required": true,
+            "description": "The id of the league",
+            "schema": {
+              "type": "string",
+              "default": "39",
+              "enum": null
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": true,
+            "description": "The season of the league 4 charactersLike 2020, 2021 ...",
+            "schema": {
+              "type": "string",
+              "default": "2020",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": true,
+            "description": "The id of the team",
+            "schema": {
+              "type": "string",
+              "default": "33",
+              "enum": null
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "description": "The limit date",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-RapidAPI-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiAuth": []
+    }
+  ]
+}

@@ -30,7 +30,7 @@
 
 ## 簡介
 
-這是一個使用 [FastMCP](https://fastmcp.wiki) 自動生成的 MCP 伺服器，用於存取 Api Football API。
+這是一個 MCP 伺服器，用於存取 Api Football API。
 
 - **PyPI 套件名**: `bach-api_football`
 - **版本**: 1.0.0
@@ -108,8 +108,8 @@ export API_KEY="your_api_key_here"
 {
   "mcpServers": {
     "api_football": {
-      "command": "python",
-      "args": ["E:\path\to\api_football\server.py"],
+      "command": "uvx",
+      "args": ["--from", "bach-api_football", "bach_api_football"],
       "env": {
         "API_KEY": "your_api_key_here"
       }
@@ -917,7 +917,6 @@ $261
 
 ## 技术栈
 
-- **FastMCP**: 快速、Pythonic 的 MCP 服务器框架
 - **传输协议**: stdio
 - **HTTP 客户端**: httpx
 
